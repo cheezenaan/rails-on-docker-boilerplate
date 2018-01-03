@@ -8,14 +8,6 @@ def copy_static_file(path)
   puts "\n"
 end
 
-def install_from_gemfile
-  puts "Installing gems..."
-  Bundler.with_clean_env do
-    run "bundle install -j4 --path vendor/bundle"
-  end
-  puts "\n"
-end
-
 def initialize_application
   puts "Setting default timezone..."
   application "config.active_record.default_timezone = :local"
@@ -83,15 +75,14 @@ puts "\n\n========================================================="
 puts " Rails Application Template Setup:"
 puts "=========================================================\n\n"
 
-copy_static_file "Gemfile"
-install_from_gemfile
+apply "#{@templates_path}/_gems.rb"
 
-initialize_application
-initialize_rspec
-initialize_spring
-initialize_guard
+# initialize_application
+# initialize_rspec
+# initialize_spring
+# initialize_guard
 
-initialize_hirb
+# initialize_hirb
 # TODO: initialize_bullet
 
 cleanup
