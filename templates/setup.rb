@@ -38,25 +38,10 @@ def initialize_application
   puts "\n"
 end
 
-# TODO copy (rail|spec)_helper.rb from ./templates/
-def initialize_rspec
-  puts "Setting RSpec..."
-  generate "rspec:install"
-  run "rm -rf test"
-  puts "\n"
-end
-
 def initialize_spring
   puts "Initialize spring..."
   run "bin/spring stop"
   run "bundle exec spring binstub --all"
-  puts "\n"
-end
-
-def initialize_guard
-  puts "Initialize guard..."
-  run "bundle exec guard init rspec"
-  gsub_file "Guardfile", "bundle exec rspec", "bin/rspec"
   puts "\n"
 end
 
@@ -78,9 +63,9 @@ puts "=========================================================\n\n"
 apply "#{@templates_path}/_gems.rb"
 
 # initialize_application
-# initialize_rspec
+apply "#{@templates_path}/_rspec.rb"
+
 # initialize_spring
-# initialize_guard
 
 # initialize_hirb
 # TODO: initialize_bullet
