@@ -14,6 +14,19 @@ def initialize_rspec
     RUBY
   end
 
+  insert_into_file "spec/spec_helper.rb", before: /RSpec\.configure do \|config\|/ do
+    <<~RUBY
+      require "simplecov"
+
+      SimpleCov.start do
+        add_filter "/vendor/"
+        add_filter "/spec/"
+      end
+
+    RUBY
+  end
+
+  # TODO: Initialize database_cleaner
   puts "\n"
 end
 
