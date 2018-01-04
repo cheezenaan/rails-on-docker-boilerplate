@@ -8,7 +8,7 @@ ENV LANG C.UTF-8
 # Install dependencies
 RUN set -x && \
   apk update && apk upgrade && \
-  apk add --no-cache openssl wget build-base libxml2-dev libxslt-dev mysql-dev mysql-client nodejs tzdata
+  apk add --no-cache openssl wget build-base libxml2-dev libxslt-dev mysql-dev mysql-client nodejs tzdata chromium
 
 # Install Entrykit
 ENV ENTRYKIT_VERSION 0.4.0
