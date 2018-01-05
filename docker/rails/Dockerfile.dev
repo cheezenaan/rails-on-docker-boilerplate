@@ -1,4 +1,6 @@
-FROM ruby:2.5.0-alpine
+# TODO: Bump Ruby to 2.5.0
+# ref. https://github.com/rails/spring/issues/550
+FROM ruby:2.4.3-alpine
 LABEL maintainer "cheezenaan <cheezenaan@gmail.com>"
 
 ENV LANG C.UTF-8
