@@ -4,12 +4,14 @@ def initialize_rspec
   run "rm -rf test"
 
   copy_static_file "spec/support/capybara.rb"
+  copy_static_file "spec/support/database_cleaner.rb"
   copy_static_file "spec/support/factory_bot.rb"
 
   uncomment_lines "spec/rails_helper.rb", /Dir\[Rails\.root\.join/
   insert_into_file "spec/rails_helper.rb", after: /require \'rspec\/rails\'\n/ do
     <<~RUBY
       require "support/capybara"
+      require "support/factory_bot"
       require "support/factory_bot"
     RUBY
   end
@@ -25,8 +27,6 @@ def initialize_rspec
 
     RUBY
   end
-
-  # TODO: Initialize database_cleaner
   puts "\n"
 end
 
