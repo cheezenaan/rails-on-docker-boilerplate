@@ -1,3 +1,5 @@
-source 'https://rubygems.org'
+# frozen_string_literal: true
 
-gem 'rails', '~> 5.1.0'
+source "https://rubygems.org"
+
+gem "rails", "~> 5.1.0"

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 puts "Initialize RSpec..."
 generate "rspec:install"
 run "rm -rf test"
@@ -32,6 +34,6 @@ puts "\n"
 puts "Initialize Guard..."
 run "bundle exec guard init rspec"
 gsub_file "Guardfile",
-  /guard :rspec, cmd: "bundle exec rspec" do/,
-  'guard :rspec, cmd: "bin/rspec" do'
+          /guard :rspec, cmd: "bundle exec rspec" do/,
+          'guard :rspec, cmd: "bin/rspec" do'
 puts "\n"

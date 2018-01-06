@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 puts "Installing gems..."
 gem_group :development, :test do
   gem "byebug"
@@ -8,9 +10,9 @@ gem_group :development, :test do
   gem "pry-rails"
   gem "pry-stack_explorer"
   gem "rails-flog", require: "flog"
-  gem 'spring'
+  gem "spring"
   gem "spring-commands-rspec"
-  gem 'spring-watcher-listen'
+  gem "spring-watcher-listen"
 end
 
 gem_group :development do
@@ -19,10 +21,10 @@ gem_group :development do
   gem "bullet"
   gem "brakeman"
   gem "guard-rspec", require: false
-  gem 'listen'
+  gem "listen"
   gem "rubocop", require: false
   gem "rufo"
-  gem 'web-console'
+  gem "web-console"
 end
 
 gem_group :test do

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 @templates_path = File.join(File.dirname(__FILE__))
 @source_path = File.join(@templates_path, "src")
 

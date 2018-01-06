@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 @templates_path = File.join(File.dirname(__FILE__))
 @source_path = File.join(@templates_path, "src")
 
@@ -16,6 +18,7 @@ def cleanup
   gsub_file "config/routes.rb", comment_line_patttern, ""
   gsub_file "config/routes.rb", empty_line_pattern, ""
   run "bundle exec rufo app/ spec/"
+  run "bundle exec rubocop --auto-correct"
   puts "\n"
 end
 
@@ -27,7 +30,6 @@ apply "#{@templates_path}/_gems.rb"
 apply "#{@templates_path}/_application.rb"
 apply "#{@templates_path}/_rspec.rb"
 apply "#{@templates_path}/_essentials.rb"
-
 
 cleanup
 

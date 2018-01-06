@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 puts "Initialize application setting..."
 config = <<-RUBY
 
@@ -22,4 +24,3 @@ RUBY
 
 application config
 puts "\n"
-

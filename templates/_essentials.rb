@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 puts "Initialize Bullet..."
 config = <<-RUBY
 
@@ -25,4 +27,3 @@ puts "\n"
 puts "Initialize Hirb..."
 copy_static_file ".pryrc"
 puts "\n"
-
