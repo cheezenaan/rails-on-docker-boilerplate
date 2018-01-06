@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 @templates_path = File.join(File.dirname(__FILE__))
 @source_path = File.join(@templates_path, "src")
 
@@ -11,8 +13,8 @@ puts " Rails Application Template Setup:"
 puts "=========================================================\n\n"
 
 gsub_file "config/environments/development.rb",
-  /ActiveSupport\:\:EventedFileUpdateChecker/,
-  "ActiveSupport::FileUpdateChecker"
+          /ActiveSupport\:\:EventedFileUpdateChecker/,
+          "ActiveSupport::FileUpdateChecker"
 
 copy_static_file("config/database.yml")
 

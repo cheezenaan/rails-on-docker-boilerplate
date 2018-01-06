@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 puts "Initialize RSpec..."
 generate "rspec:install"
 run "rm -rf test"
@@ -7,7 +9,7 @@ uncomment_lines "spec/rails_helper.rb", /Dir\[Rails\.root\.join/
 copy_static_file "spec/supports/capybara.rb"
 copy_static_file "spec/supports/database_cleaner.rb"
 copy_static_file "spec/supports/factory_bot.rb"
-insert_into_file "spec/rails_helper.rb", after: /require \'rspec\/rails\'\n/ do
+insert_into_file "spec/rails_helper.rb", after: %r{require 'rspec/rails'\n} do
   <<~RUBY
     require "supports/capybara"
     require "supports/database_cleaner"
@@ -31,6 +33,6 @@ puts "\n"
 puts "Initialize Guard..."
 run "bundle exec guard init rspec"
 gsub_file "Guardfile",
-  /guard :rspec, cmd: "bundle exec rspec" do/,
-  'guard :rspec, cmd: "bin/rspec" do'
+          /guard :rspec, cmd: "bundle exec rspec" do/,
+          'guard :rspec, cmd: "bin/rspec" do'
 puts "\n"
