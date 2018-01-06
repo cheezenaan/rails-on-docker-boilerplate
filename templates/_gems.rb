@@ -1,11 +1,4 @@
-def install_gems
-  puts "Installing gems..."
-  Bundler.with_clean_env do
-    run "bundle install -j4 --path vendor/bundle"
-  end
-  puts "\n"
-end
-
+puts "Installing gems..."
 gem_group :development, :test do
   gem "byebug"
   gem "hirb"
@@ -43,4 +36,7 @@ gem_group :test do
   gem "selenium-webdriver", require: false
 end
 
-install_gems
+Bundler.with_clean_env do
+  run "bundle install -j4 --path vendor/bundle"
+end
+puts "\n"

@@ -8,13 +8,6 @@ def copy_static_file(path)
   puts "\n"
 end
 
-def initialize_spring
-  puts "Initialize spring..."
-  run "bin/spring stop"
-  run "bundle exec spring binstub --all"
-  puts "\n"
-end
-
 def cleanup
   puts "Cleaning up..."
   empty_line_pattern = /^\s*\n/
@@ -33,11 +26,8 @@ puts "=========================================================\n\n"
 apply "#{@templates_path}/_gems.rb"
 apply "#{@templates_path}/_application.rb"
 apply "#{@templates_path}/_rspec.rb"
+apply "#{@templates_path}/_essentials.rb"
 
-# initialize_spring
-
-# initialize_hirb
-# TODO: initialize_bullet
 
 cleanup
 

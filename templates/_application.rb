@@ -1,6 +1,5 @@
-def initialize_application
-  puts "Initialize application setting..."
-  config = <<-RUBY
+puts "Initialize application setting..."
+config = <<-RUBY
 
     config.generators do |g|
       g.assets false
@@ -19,10 +18,8 @@ def initialize_application
     config.i18n.default_locale = :ja
     config.i18n.load_path += Dir[Rails.root.join("config", "locales", "**", "*.{rb,yml}").to_s]
     config.time_zone = "Asia/Tokyo"
-  RUBY
+RUBY
 
-  application config
-  puts "\n"
-end
+application config
+puts "\n"
 
-initialize_application
