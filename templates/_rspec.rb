@@ -18,6 +18,16 @@ insert_into_file "spec/rails_helper.rb", after: /require \'rspec\/rails\'\n/ do
   RUBY
 end
 
+insert_into_file "spec/rails_helper.rb", before: /RSpec\.configure do \|config\|/ do
+  <<~RUBY
+    config.before :each, type: :system do
+      driven_by :selenium_remote_chrome
+      host! "http://#{IPSocket.getaddress(Socket.gethostname)}"
+    end
+  RUBY
+end
+puts "\n"
+
 insert_into_file "spec/spec_helper.rb", before: /RSpec\.configure do \|config\|/ do
   <<~RUBY
     require "simplecov"
