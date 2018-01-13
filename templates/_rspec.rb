@@ -7,13 +7,11 @@ run "rm -rf test"
 uncomment_lines "spec/rails_helper.rb", /Dir\[Rails\.root\.join/
 
 copy_static_file "spec/support/capybara.rb"
-copy_static_file "spec/support/database_cleaner.rb"
 copy_static_file "spec/support/factory_bot.rb"
 
 insert_into_file "spec/rails_helper.rb", after: /require \'rspec\/rails\'\n/ do
   <<~RUBY
     require "support/capybara"
-    require "support/database_cleaner"
     require "support/factory_bot"
   RUBY
 end
