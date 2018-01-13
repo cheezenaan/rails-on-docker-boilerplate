@@ -41,7 +41,5 @@ puts "\n"
 
 puts "Initialize Guard..."
 run "bundle exec guard init rspec"
-gsub_file "Guardfile",
-          /guard :rspec, cmd: "bundle exec rspec" do/,
-          'guard :rspec, cmd: "bin/rspec" do'
+copy_static_file "Guardfile"
 puts "\n"
