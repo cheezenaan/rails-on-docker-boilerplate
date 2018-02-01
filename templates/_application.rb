@@ -23,4 +23,9 @@ config = <<-RUBY
 RUBY
 
 application config
+
+remove_file "config/locales/en.yml"
+get "https://raw.github.com/svenfuchs/rails-i18n/master/rails/locale/en.yml", "config/locales/en.yml"
+get "https://raw.github.com/svenfuchs/rails-i18n/master/rails/locale/ja.yml", "config/locales/ja.yml"
+
 puts "\n"
