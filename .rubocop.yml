@@ -10,6 +10,12 @@ AllCops:
 Lint/UnderscorePrefixedVariableName:
   Enabled: false
 
+# ref. https://github.com/bbatsov/ruby-style-guide#indent-conditional-assignment
+Lint/EndAlignment:
+  Enabled: true
+  EnforcedStyleAlignWith: keyword
+  AutoCorrect: true
+
 Metrics/BlockLength:
   CountComments: false
   Max: 50
