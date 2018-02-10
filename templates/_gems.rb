@@ -29,7 +29,6 @@ end
 
 gem_group :test do
   gem "capybara", require: false
-  gem "capybara-screenshot"
   gem "factory_bot_rails"
   gem "rspec-rails"
   gem "rspec-its"
